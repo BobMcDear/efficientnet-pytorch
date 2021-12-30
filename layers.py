@@ -77,19 +77,19 @@ class MBConvN(nn.Module):
                                act=False)
     self.dropsample = DropSample(p)
   
-def forward(self, x):
-  residual = x
+  def forward(self, x):
+    residual = x
 
-  x = self.expand_pw(x)
-  x = self.depthwise(x)
-  x = self.se(x)
-  x = self.reduce_pw(x)
+    x = self.expand_pw(x)
+    x = self.depthwise(x)
+    x = self.se(x)
+    x = self.reduce_pw(x)
 
-  if self.skip_connection:
-    x = self.dropsample(x)
-    x = x + residual
+    if self.skip_connection:
+      x = self.dropsample(x)
+      x = x + residual
 
-  return x
+    return x
     
     
 class MBConv1(MBConvN):

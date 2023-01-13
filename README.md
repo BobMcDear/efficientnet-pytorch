@@ -1,5 +1,6 @@
-# EfficientNet in PyTorch
+<i>This is not a fork of somebody else's code. I, [@BobMcDear](https://github.com/BobMcDear), am the original creator of this project but due to problems with Git was forced to delete and restore it. In other words, [anushmite/PyTorch-EfficientNet](https://github.com/anushmite/PyTorch-EfficientNet) is a fork of this repository and not vice versa.</i>
 
+# EfficientNet in PyTorch
 
 This is an implementation of EfficientNet in PyTorch. You can find the accompanying blog for the code [here](https://python.plainenglish.io/implementing-efficientnet-in-pytorch-part-1-an-overview-1830935e0c8b) </a> and a Colab version of the code [here](https://colab.research.google.com/drive/1zW4yQoNZyg9twfbcs_orwtmQ36u97ETl?usp=sharing).
 

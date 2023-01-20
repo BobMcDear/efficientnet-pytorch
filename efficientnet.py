@@ -28,10 +28,9 @@ class EfficientNet(nn.Module):
     stages = []
     for i in range(7):
       layer_type = MBConv1 if (i == 0) else MBConv6
-      r = 4 if (i == 0) else 24
       stage = create_stage(*scaled_widths[i], scaled_depths[i],
                            layer_type, kernel_size=kernel_sizes[i], 
-                           stride=strides[i], r=r, p=ps[i])
+                           stride=strides[i], p=ps[i])
       stages.append(stage)
     self.stages = nn.Sequential(*stages)
 

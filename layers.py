@@ -62,7 +62,7 @@ class DropSample(nn.Module):
 class MBConvN(nn.Module):
   """MBConv with an expansion factor of N, plus squeeze-and-excitation"""
   def __init__(self, n_in, n_out, expansion_factor,
-               kernel_size=3, stride=1, r=24, p=0):
+               kernel_size=3, stride=1, r=4, p=0):
     super().__init__()
 
     padding = (kernel_size-1)//2
@@ -72,7 +72,7 @@ class MBConvN(nn.Module):
     self.expand_pw = nn.Identity() if (expansion_factor == 1) else ConvBnAct(n_in, expanded, kernel_size=1)
     self.depthwise = ConvBnAct(expanded, expanded, kernel_size=kernel_size, 
                                stride=stride, padding=padding, groups=expanded)
-    self.se = SEBlock(expanded, r=r)
+    self.se = SEBlock(expanded, r=r*expansion_factor)
     self.reduce_pw = ConvBnAct(expanded, n_out, kernel_size=1,
                                act=False)
     self.dropsample = DropSample(p)
